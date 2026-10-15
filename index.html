@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Happy Birthday EEMAN TAHIR</title>
+<style>
+:root{--bg1:#2a0a1f;--bg2:#5c1240;--pink:#ff4fa3;--soft:#ffc2e0;--text:#fff0f7;--card:rgba(255,255,255,.1);
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box;margin:0}
+body{background:radial-gradient(ellipse at 50% 0%,var(--bg2),var(--bg1) 70%) fixed;color:var(--text);font-family:Georgia,'Times New Roman',serif;min-height:100vh;overflow-x:hidden}
+canvas{position:fixed;inset:0;pointer-events:none;z-index:1}
+#intro{position:fixed;inset:0;z-index:20;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;background:radial-gradient(circle,#4a0f35,#1a0613);transition:opacity 1.5s;text-align:center;padding:20px}
+#intro h2{font-weight:400;letter-spacing:.3em;font-size:clamp(14px,3vw,20px);color:var(--soft)}
+#intro button{background:linear-gradient(135deg,#ff7ac0,#ff2d8a);border:0;color:#fff;font:inherit;font-size:20px;padding:16px 40px;border-radius:50px;cursor:pointer;box-shadow:0 0 40px #ff4fa3aa;animation:pulse 1.6s infinite}
+@keyframes pulse{50%{transform:scale(1.07);box-shadow:0 0 70px #ff4fa3}}
+.curtain{position:fixed;top:0;bottom:0;width:51%;z-index:15;background:repeating-linear-gradient(90deg,#8e1a5c,#c2307f 30px,#8e1a5c 60px);transition:transform 3s cubic-bezier(.7,0,.3,1);box-shadow:0 0 60px #000}
+#cl{left:0}#cr{right:0}
+.open #cl{transform:translateX(-100%)}.open #cr{transform:translateX(100%)}
+main{position:relative;z-index:5;max-width:980px;margin:0 auto;padding:60px 20px 90px;text-align:center}
+.kicker{letter-spacing:.5em;font-size:clamp(12px,2.5vw,18px);color:var(--soft);opacity:0;min-height:1.5em}
+h1{font-size:clamp(44px,13vw,120px);font-weight:700;letter-spacing:.06em;margin:14px 0;background:linear-gradient(90deg,#ffd1ea,#ff4fa3,#fff,#ff4fa3,#ffd1ea);background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 5s linear infinite;filter:drop-shadow(0 0 25px #ff4fa3);opacity:0;transform:scale(.6)}
+h1 small{display:block;font-size:.45em;letter-spacing:.3em}
+@keyframes shine{to{background-position:-300% 0}}
+.show{opacity:1!important;transform:none!important;transition:all 2s ease}
+.cake{font-size:clamp(60px,14vw,110px);animation:float 3s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-14px) rotate(4deg)}}
+#lyric{min-height:2.6em;font-size:clamp(18px,4vw,30px);font-style:italic;color:var(--soft);margin:24px 0 10px;text-shadow:0 0 20px #ff4fa3;transition:opacity .6s}
+.wish{margin-top:40px}
+.orn{color:var(--pink);font-size:26px;letter-spacing:.5em;opacity:.85;margin:18px 0}
+.ln{font-size:clamp(18px,3.6vw,28px);line-height:1.7;margin:14px auto;max-width:700px;opacity:0;transform:translateY(20px);filter:blur(8px);transition:all 1.6s;text-shadow:0 0 18px #ff4fa3}
+.ln.show{filter:none}
+#flame{font-size:70px;margin-top:20px;filter:drop-shadow(0 0 20px #ffb300);transition:all 1s}
+#flame.out{filter:grayscale(1) opacity(.5)}
+#blow{margin-top:10px;background:linear-gradient(135deg,#ff7ac0,#ff2d8a);border:0;color:#fff;font:inherit;font-size:18px;padding:14px 32px;border-radius:50px;cursor:pointer;box-shadow:0 0 30px #ff4fa388}
+.sign{margin-top:50px;font-size:clamp(18px,3.5vw,26px);color:var(--soft);opacity:0}
+#mute{position:fixed;right:14px;top:calc(14px + env(safe-area-inset-top,0px));z-index:30;background:#ffffff22;border:1px solid #ff9cd0;color:#fff;border-radius:50%;width:46px;height:46px;font-size:20px;cursor:pointer}
+#again{margin-top:26px;background:none;border:1px solid var(--pink);color:var(--soft);padding:10px 26px;border-radius:30px;font:inherit;cursor:pointer}
+</style>
+</head>
+<body>
+<canvas id="fx"></canvas>
+<div id="intro"><h2>A SPECIAL SURPRISE FOR SOMEONE SPECIAL</h2><button id="start">✨ Tap to Begin ✨</button></div>
+<div class="curtain" id="cl"></div><div class="curtain" id="cr"></div>
+<button id="mute" title="Music on/off">🔊</button>
+<main>
+  <div class="kicker" id="k1">TODAY THE WORLD GOT BRIGHTER</div>
+  <div class="cake">🎂</div>
+  <h1 id="name">HAPPY BIRTHDAY<small>EEMAN TAHIR</small></h1>
+  <div class="kicker" id="k2">💖 My Dear Sister 💖</div>
+  <div id="lyric"></div>
+  <section class="wish">
+    <div class="orn">❦ ✿ ❦</div>
+    <p class="ln">Dear Sister Eeman,</p>
+    <p class="ln">May every dream you carry bloom into reality this year.</p>
+    <p class="ln">May your days be as beautiful as your smile.</p>
+    <p class="ln">Thank you for being my sister and my best friend. 💗</p>
+    <div class="orn">❦ ✿ ❦</div>
+    <div id="flame">🕯️</div>
+    <button id="blow">Make a wish &amp; blow the candle</button>
+  </section>
+  <p class="sign" id="sign">Happy Birthday to you, my dear sister Eeman! 🎉<br>With all my love, forever yours 💗</p>
+  <button id="again">🔁 Replay the magic</button>
+</main>
+
+<script>
+const $=s=>document.querySelector(s);
+const cv=$('#fx'),cx=cv.getContext('2d');let W,H;
+function rs(){W=cv.width=innerWidth;H=cv.height=innerHeight}rs();addEventListener('resize',rs);
+const em=['💖','🌸','🎀','💗','✨','🎈'];let ps=[];
+function spawn(n,burst){for(let i=0;i<n;i++)ps.push({x:burst?W/2:Math.random()*W,y:burst?H/2:H+20,vx:burst?(Math.random()-.5)*14:(Math.random()-.5)*1.2,vy:burst?-Math.random()*14-2:-Math.random()*2-.8,s:14+Math.random()*22,e:em[Math.random()*em.length|0],g:burst?.25:-.005,r:Math.random()*6,l:1})}
+function loop(){cx.clearRect(0,0,W,H);ps.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.vy+=p.g;p.l-=.0025;cx.globalAlpha=Math.max(p.l,0);cx.font=p.s+'px serif';cx.fillText(p.e,p.x,p.y)});ps=ps.filter(p=>p.l>0&&p.y>-50&&p.y<H+60);requestAnimationFrame(loop)}loop();
+setInterval(()=>spawn(1),350);
+
+/* Music: Happy Birthday melody synthesized with Web Audio */
+let ac,master,muted=false,timers=[],playing=false;
+const N={G4:392,A4:440,B4:494,C5:523,D5:587,E5:659,F5:698,G5:784};
+const mel=[['G4',.75],['G4',.25],['A4',1],['G4',1],['C5',1],['B4',2],
+['G4',.75],['G4',.25],['A4',1],['G4',1],['D5',1],['C5',2],
+['G4',.75],['G4',.25],['G5',1],['E5',1],['C5',1],['B4',1],['A4',2],
+['F5',.75],['F5',.25],['E5',1],['C5',1],['D5',1],['C5',3]];
+const lines=[[0,'Happy Birthday to you 🎶'],[6,'Happy Birthday to you 🎶'],[12,'Happy Birthday dear EEMAN 💖'],[19,'Happy Birthday to you, my dear sister 🌸']];
+const BEAT=.6,TOTAL=26;
+function tone(f,t,d,type,vol){const o=ac.createOscillator(),g=ac.createGain();o.type=type;o.frequency.value=f;o.connect(g);g.connect(master);
+g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(vol,t+.03);g.gain.exponentialRampToValueAtTime(.0001,t+d);o.start(t);o.stop(t+d+.05)}
+function cycle(){if(!playing)return;let t=ac.currentTime+.1,b=0;
+mel.forEach(([n,d])=>{tone(N[n],t+b*BEAT,d*BEAT*1.6,'triangle',.28);tone(N[n]*2,t+b*BEAT,d*BEAT,'sine',.07);b+=d});
+[[0,'C4',261.6],[6,'F4',174.6],[12,'C4',261.6],[19,'G3',196]].forEach(([s,,f])=>{tone(f,t+s*BEAT,5.5*BEAT,'sine',.12);tone(f*1.5,t+s*BEAT,5.5*BEAT,'sine',.06)});
+lines.forEach(([s,txt])=>timers.push(setTimeout(()=>{const l=$('#lyric');l.style.opacity=0;setTimeout(()=>{l.textContent=txt;l.style.opacity=1},300);if(s==12)spawn(25,true)},s*BEAT*1000)));
+timers.push(setTimeout(cycle,TOTAL*BEAT*1000))}
+function startMusic(){if(!ac){ac=new (window.AudioContext||window.webkitAudioContext)();master=ac.createGain();master.gain.value=.8;
+const d=ac.createDelay();d.delayTime.value=.25;const fb=ac.createGain();fb.gain.value=.3;master.connect(d);d.connect(fb);fb.connect(d);d.connect(ac.destination);master.connect(ac.destination)}
+ac.resume();playing=true;cycle()}
+
+/* Cinematic sequence */
+const wait=ms=>new Promise(r=>setTimeout(r,ms));
+async function typeIn(el,txt){el.textContent='';el.style.opacity=1;for(const c of txt){el.textContent+=c;await wait(60)}}
+async function play(){
+document.querySelectorAll('.show').forEach(e=>e.classList.remove('show'));
+$('#k1').style.opacity=0;$('#k2').style.opacity=0;$('#sign').style.opacity=0;
+document.body.classList.remove('open');await wait(300);document.body.classList.add('open');
+startMusic();await wait(2500);
+await typeIn($('#k1'),'TODAY THE WORLD GOT BRIGHTER');await wait(500);
+$('#name').classList.add('show');spawn(40,true);await wait(2200);
+$('#k2').classList.add('show');
+$('#flame').classList.remove('out');$('#blow').textContent='Make a wish & blow the candle';
+for(const l of document.querySelectorAll('.ln')){l.classList.add('show');await wait(1900)}
+await wait(800);$('#sign').classList.add('show');spawn(30,true)}
+$('#blow').onclick=()=>{$('#flame').classList.add('out');$('#blow').textContent='Your wish is on its way ✨';spawn(70,true)};
+$('#start').onclick=()=>{$('#intro').style.opacity=0;setTimeout(()=>$('#intro').style.display='none',1500);play()};
+$('#mute').onclick=()=>{muted=!muted;if(master)master.gain.value=muted?0:.8;$('#mute').textContent=muted?'🔇':'🔊'};
+$('#again').onclick=()=>{timers.forEach(clearTimeout);timers=[];playing=false;play()};
+</script>
+</body>
+</html>
